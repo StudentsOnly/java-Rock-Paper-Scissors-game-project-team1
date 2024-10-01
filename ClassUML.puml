@@ -12,26 +12,21 @@ class Game {
     -int rounds
     +play(): void
     -updateScore(result: String): void
+    +determineWinner(humanChoice: ChoiceType, opponentChoice: ChoiceType): String
 }
 
-class Player {
+interface Player {
     #String name
-    +makeChoice(): Choice
+    +makeChoice(): ChoiceType
     +getName(): String
 }
 
 class HumanPlayer {
-    +makeChoice(): Choice
+    +makeChoice(): ChoiceType
 }
 
 class ComputerPlayer {
-    +makeChoice(): Choice
-}
-
-class Choice {
-    -ChoiceType choiceType
-    +determineWinner(opponentChoice: Choice): String
-    +getChoiceType(): ChoiceType
+    +makeChoice(): ChoiceType
 }
 
 enum ChoiceType {
@@ -46,7 +41,7 @@ Game --> HumanPlayer
 Game --> ComputerPlayer
 Player <|-- HumanPlayer
 Player <|-- ComputerPlayer
-Player --> Choice
-Choice --> ChoiceType
+Player --> ChoiceType
+
 
 @enduml
