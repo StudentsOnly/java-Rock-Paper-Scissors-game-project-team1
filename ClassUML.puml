@@ -7,8 +7,6 @@ class RockPaperScissorsApp {
 class Game {
     -Player player
     -Player computer
-    -int playerScore
-    -int computerScore
     -int rounds
     +play(): void
     -updateScore(result: String): void
@@ -16,12 +14,14 @@ class Game {
 }
 
 interface Player {
-    #String name
+    -String name
+    -int score
     +makeChoice(): ChoiceType
     +getName(): String
 }
 
 class HumanPlayer {
+    -Scanner scan;
     +makeChoice(): ChoiceType
 }
 
@@ -36,6 +36,7 @@ enum ChoiceType {
 }
 
 RockPaperScissorsApp --> Game
+
 Game --> Player
 Game --> HumanPlayer
 Game --> ComputerPlayer
