@@ -13,19 +13,26 @@ class Game {
     +determineWinner(humanChoice: ChoiceType, opponentChoice: ChoiceType): String
 }
 
-interface Player {
+abstract class Player {
     -String name
     -int score
-    +makeChoice(): ChoiceType
-    +getName(): String
+    +abstract makeChoice(): ChoiceType
+    +abstract getName(): String
+    +abstract getSore(): int
+    +updateScore(): void
 }
 
 class HumanPlayer {
-    -Scanner scan;
+
+    -Scanner scan
+    +HumanPlayer(String name)
+    +HumanPlayer()
     +makeChoice(): ChoiceType
 }
 
 class ComputerPlayer {
+    -Random randomNum
+    +ComputerPlayer()
     +makeChoice(): ChoiceType
 }
 
