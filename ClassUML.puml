@@ -1,0 +1,52 @@
+@startuml
+
+class RockPaperScissorsApp {
+    +main(args: String[]): void
+}
+
+class Game {
+    -Player player
+    -Player computer
+    -int playerScore
+    -int computerScore
+    -int rounds
+    +play(): void
+    -updateScore(result: String): void
+}
+
+class Player {
+    #String name
+    +makeChoice(): Choice
+    +getName(): String
+}
+
+class HumanPlayer {
+    +makeChoice(): Choice
+}
+
+class ComputerPlayer {
+    +makeChoice(): Choice
+}
+
+class Choice {
+    -ChoiceType choiceType
+    +determineWinner(opponentChoice: Choice): String
+    +getChoiceType(): ChoiceType
+}
+
+enum ChoiceType {
+    ROCK
+    PAPER
+    SCISSORS
+}
+
+RockPaperScissorsApp --> Game
+Game --> Player
+Game --> HumanPlayer
+Game --> ComputerPlayer
+Player <|-- HumanPlayer
+Player <|-- ComputerPlayer
+Player --> Choice
+Choice --> ChoiceType
+
+@enduml
