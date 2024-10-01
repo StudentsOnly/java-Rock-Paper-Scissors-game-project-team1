@@ -22,7 +22,7 @@ public class HumanPlayer extends Player{
     }
     @Override
     public int getScore() {
-        return score;
+        return this.score;
     }
 
 
@@ -30,7 +30,7 @@ public class HumanPlayer extends Player{
     public ChoiceType makeChoice() {
         String input;
         while(true) {
-            System.out.println("Make your choice:\n\tRock, Paper or Scissors:");
+            System.out.println("Make your choice:\nRock, Paper or Scissors:");
             input = scan.nextLine().trim().toLowerCase();
             switch(input){
                 case "rock":

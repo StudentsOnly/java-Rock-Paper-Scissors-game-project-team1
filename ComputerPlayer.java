@@ -16,7 +16,7 @@ public class ComputerPlayer extends Player{
     }
     @Override
     public int getScore() {
-        return score;
+        return this.score;
     }
 
     @Override
